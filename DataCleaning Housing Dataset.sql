@@ -132,8 +132,6 @@ With RowNumCTE AS(
 Select *,
 	ROW_NUMBER() OVER (									--Can also use RANK()
 	PARTITION BY ParcelID,
-				 PropertyAddress,
-				 SalePrice,
 				 SaleDate,
 				 LegalReference
 				 ORDER BY
@@ -146,6 +144,10 @@ From PortfolioProject..NashvilleHousing
 Delete
 From RowNumCTE
 Where rownum>1
+
+--Select * 
+--From PortfolioProject..NashvilleHousing
+--Where rownum>1
 
 
 --Delete unused columns
